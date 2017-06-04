@@ -1,0 +1,64 @@
+// out: app.css
+
+@font-face
+    font-family: "BebasNeue"
+    src: url("/static/fonts/BebasNeue.otf")
+
+@font-face
+    font-family: "Biko"
+    src: url("/static/fonts/Biko_Regular.otf")
+    font-weight: normal
+
+@font-face
+    font-family: "Biko"
+    src: url("/static/fonts/Biko_Bold.otf")
+    font-weight: bold
+
+body
+    margin-top: 70px
+    font-family: "Biko", serif
+    font-size: 12pt
+
+h1, h2, h3, h4
+    font-family: "BebasNeue", serif
+
+input
+    font-size: 12pt !important
+
+textarea
+    font-size: 12pt !important
+
+button
+    font-size: 12pt !important
+
+#jobs
+    margin-top: 80px
+
+.navbar
+    h1
+        color: rgb(86, 69, 15)
+
+[v-cloak]
+    display: none
+
+.jobtitle
+    font-size: 16pt
+    font-weight: bold
+
+.empty
+    color: rgba(255, 0, 0, 0.49)
+
+.validation-error
+    color: red
+    font-size: 9pt
+
+.btn-remove-job
+    align: center
+    font-size: 10pt !important
+    color: rgba(255, 0, 0, 0.49)
+    cursor: pointer
+    padding: 1px
+    &:hover
+        background: rgba(255, 0, 0, 0.49)
+        color: white
+        border-radius: 5px

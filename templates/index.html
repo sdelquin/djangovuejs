@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block jobs %}
+
+    <div id="jobs" class="container">
+        <div class="row">
+            <div class="col-md-5" v-cloak>
+                <h2 class="hl">Post a Job</h2>
+                <label class="form-label" for="title">Job Title</label>
+                <input class="form-control" id="title" v-model="job.title">
+                <div class="validation-error" v-show="errors.title">
+                    <i class="fa fa-warning"></i>
+                    [[ errors.title ]]
+                </div>
+                <br>
+                <label class="form-label" for="description">Job Description</label>
+                <textarea
+                    class="form-control"
+                    id="description"
+                    v-model="job.description"
+                    @keyup.13="addJob()"
+                >
+                </textarea>
+                <div class="validation-error" v-show="errors.description">
+                    <i class="fa fa-warning"></i>
+                    [[ errors.description ]]
+                </div>
+                <br>
+                <button type="button"
+                        class="btn btn-primary"
+                        @click="addJob()">
+                    Add Job!
+                </button>
+            </div>
+
+            <div class="col-md-6 col-md-offset-1" v-cloak>
+                <h2 class="hl">Available Jobs</h2>
+
+                <p v-if="jobs != null && jobs.length == 0" class="empty">
+                    <i class="fa fa-envelope-open-o"></i>
+                    There are no available jobs!
+                </p>
+
+                <div class="list-group">
+                    <a class="list-group-item" v-for="(job, index) in jobs">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="jobtitle">[[ job.title ]]</div>
+                                <p>[[ job.description ]]</p>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-remove-job" @click="removeJob(index)">
+                                    <i class="fa fa-times"></i> Remove
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
